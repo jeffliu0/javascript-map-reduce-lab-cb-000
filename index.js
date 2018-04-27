@@ -9028,3 +9028,9 @@ var nonAutomaticIssues = issues.filter((element)=>{
     return Object.assign({},element)
   }
 })
+
+nonAutomaticIssues.map((element)=>{
+  var tr = document.createElement('tr')
+  var h1,h2,h3 = document.createElement('th')
+  
+})
