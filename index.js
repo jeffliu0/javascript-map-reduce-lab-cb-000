@@ -1,3 +1,5 @@
+
+
 const issues = [
   {
     "body": "Instructions say GET /team and POST /newteam. Rspec wants GET/newteam and POST/team.",
@@ -9000,3 +9002,44 @@ const issues = [
     "url": "https://api.github.com/repos/learn-co-curriculum/js-donut-lab/issues/2"
   }
 ];
+
+var issuesWithUpdatedApiUrl = issues.map((element)=>{
+  if(element['url'].includes('api.github.com')){
+    return Object.assign({}, element, {
+      url: element['url'].replace('api.github.co', 'api-v2.github.com')
+    })
+  }
+})
+
+var commentCountAcrossIssues = issues.map((elements) => {
+  return elements.comments_count
+}).reduce((arr, element)=>{
+  return arr + element
+},0)
+
+var openIssues = issues.filter((element)=>{
+  if(element['state'] == 'open'){
+    return Object.assign({}, element)
+  }
+})
+
+var nonAutomaticIssues = issues.filter((element)=>{
+  if(!element["body"].includes('automatic')){
+    return Object.assign({},element)
+  }
+})
+
+nonAutomaticIssues.map((element)=>{
+  var tr = document.getElementById('results').insertRow()
+  var h1,h2,h3
+  h1 = document.createElement('th')
+  h1.innerHTML = element['body']
+  tr.appendChild(h1)
+  h2 = document.createElement('th')
+  h2.innerHTML = element['created_at']
+  tr.appendChild(h2)
+  h3 = document.createElement('th')
+  h3.innerHTML = element['state']
+  tr.appendChild(h3)
+
+})
