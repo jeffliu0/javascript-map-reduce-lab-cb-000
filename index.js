@@ -9024,7 +9024,7 @@ var openIssues = issues.filter((element)=>{
 })
 
 var nonAutomaticIssues = issues.filter((element)=>{
-  if(element["body"].includes('automatic')){
+  if(!element["body"].includes('automatic')){
     return Object.assign({},element)
   }
 })
