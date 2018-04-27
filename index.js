@@ -9033,13 +9033,13 @@ nonAutomaticIssues.map((element)=>{
   var tr = document.getElementById('results').insertRow()
   var h1,h2,h3
   h1 = document.createElement('th')
-  h1.innerHTML = issues[0]['body']
+  h1.innerHTML = element['body']
   tr.appendChild(h1)
   h2 = document.createElement('th')
-  h2.innerHTML = issues[0]['created_at']
+  h2.innerHTML = element['created_at']
   tr.appendChild(h2)
   h3 = document.createElement('th')
-  h3.innerHTML = issues[0]['state']
+  h3.innerHTML = element['state']
   tr.appendChild(h3)
-  
+
 })
