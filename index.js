@@ -9030,7 +9030,16 @@ var nonAutomaticIssues = issues.filter((element)=>{
 })
 
 nonAutomaticIssues.map((element)=>{
-  var tr = document.createElement('tr')
-  var h1,h2,h3 = document.createElement('th')
+  var tr = document.getElementById('results').insertRow()
+  var h1,h2,h3
+  h1 = document.createElement('th')
+  h1.innerHTML = issues[0]['body']
+  tr.appendChild(h1)
+  h2 = document.createElement('th')
+  h2.innerHTML = issues[0]['created_at']
+  tr.appendChild(h2)
+  h3 = document.createElement('th')
+  h3.innerHTML = issues[0]['state']
+  tr.appendChild(h3)
   
 })
